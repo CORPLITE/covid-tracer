@@ -1,0 +1,267 @@
+// Overrides
+@if $bulmaswatch-import-font {
+  @import url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-light-webfont.woff');
+  @font-face {
+    font-family: 'SF Pro Display';
+    font-weight: 400;
+    src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
+  }
+}
+
+a {
+  transition: all 200ms ease;
+}
+
+html {
+  // This needs to match the width of a section
+  min-width: 320px;
+}
+
+.is-secondary {
+  background-color: $secondary;
+  border-color: transparent;
+  color: #fff;
+}
+
+.button {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 50px;
+
+  &.is-small {
+    border-radius: 40px;
+    font-size: 0.85rem;
+  }
+}
+
+.button {
+  transition: all 200ms ease;
+
+  &.is-active,
+  &.is-focused,
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($button-active-border-color, 0.3);
+  }
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      &.is-active,
+      &.is-focused,
+      &:active,
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($color, 0.3);
+      }
+    }
+  }
+}
+
+.content {
+  font-size: 1.1rem;
+  font-family: $family-serif;
+
+  .button {
+    font-family: $family-sans-serif;
+  }
+}
+
+.card-header-title,
+.menu-label,
+.message-header,
+.modal-card-title,
+.panel-heading,
+.subtitle,
+.title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: $family-heading;
+  letter-spacing: 0.1rem;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+.input,
+.textarea {
+  transition: all 200ms ease;
+  box-shadow: none;
+}
+
+.notification {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+
+    &.is-#{$name} {
+      a:not(.button) {
+        color: $color-invert;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.navbar {
+  border: 1px solid $border;
+
+  .navbar-brand {
+    // Buefy automatically adds a margin here if screen > 1024px
+    margin-left: 0 !important;
+  }
+
+  .nav-logo:hover {
+    cursor: pointer;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 15rem;
+    margin-right: 0.75rem;
+  }
+
+  // Apply below styles when navbar burger menu is displayed
+  @media only screen and (max-width: $desktop) {
+    .navbar-brand {
+      padding-left: 2rem;
+    }
+
+    .navbar-item {
+      padding-left: 2rem;
+    }
+
+    .navbar-menu {
+      padding-bottom: 1em;
+    }
+  }
+
+  // Apply below styles when navbar burger menu is not displayed
+  @media only screen and (min-width: $desktop) {
+    .navbar-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .navbar-item {
+      padding-left: 2rem;
+    }
+  }
+}
+
+.hero {
+  .navbar {
+    border: none;
+    box-shadow: 0 1px 0 rgba($border, 0.25);
+  }
+}
+
+.card {
+  $card-border-color: $grey-darker;
+  box-shadow: 0 0 1px $grey-light;
+
+  .card-header {
+    box-shadow: none;
+    border-bottom: 1px solid $grey-lighter;
+  }
+}
+
+.qr-shadow {
+  box-shadow: 2.5px 2.5px 6px -3px $grey-light;
+}
+
+.padding-small {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@media only screen and (max-width: $desktop) {
+  .section-content {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media only screen and (min-width: $desktop) {
+  .section-content {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+.padding-med {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.main-content {
+  min-height: 100vh;
+}
+
+.footer-content {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.footer {
+  background-color: $grey-darker;
+  padding: 2rem 0rem !important;
+
+  span {
+    font-family: $family-serif;
+    color: $grey-lighter;
+    letter-spacing: 0.075rem;
+  }
+  img {
+    height: auto;
+    width: 15rem;
+  }
+
+  .footer-text {
+    margin-left: 3rem !important;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: $tablet) {
+    .footer-image {
+      text-align: center;
+    }
+
+    .footer-text {
+      margin-top: 1em !important;
+      margin-left: 0rem !important;
+    }
+  }
+
+  @media only screen and (min-width: $fullhd) {
+    .footer-text {
+      text-align: right;
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.collapse > .collapse-content {
+  margin-bottom: 0.75rem;
+}
+
+.amplify-container {
+  text-align: center;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
