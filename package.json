@@ -21,7 +21,7 @@
     "@mdi/font": "^5.3.45",
     "@vue/cli-plugin-unit-jest": "^3.2.0",
     "@vue/cli-service": "^3.2.0",
-    "aws-amplify": "^3.0.20",
+    "aws-amplify": "^3.3.4",
     "aws-sdk": "^2.209.0",
     "buefy": "^0.8.20",
     "bulmaswatch": "^0.8.1",
